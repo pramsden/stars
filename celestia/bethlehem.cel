@@ -1,0 +1,88 @@
+{
+	timerate { rate 0 }
+	cls {}
+	unmark {object "Jupiter" }
+	unmark {object "Venus" }
+	set { name "FOV" value 45 }
+	
+	labels { clear "planets|minorplanets|stars|constellations" }
+	renderflags { set "stars|planets|markers"
+                      clear "constellations|orbits|cloudmaps" }
+
+	time { utc "-2-08-01T09:29:24.0000" }
+	select {object "Sol/Earth"}
+	follow {}
+	center { time 1 }
+	wait { duration 2.0 }
+
+	print { text "Star of Bethlehem . . .\nPress SPACE to pause." row-3 duration 3 }
+	wait { duration 5.0 }
+	
+	print { text "Location: Babylon, Time August 3BC" row-3 duration 3 }
+
+	select {object "Sol/Earth"}
+	follow {}
+	gotolonglat {time 1.0  distance 4  longitude 32.5  latitude 44.33}
+	wait { duration 3.0 }
+	
+	print { text "Look up at the constellation Leo\nand center on the star Regulus" row-3 }
+	wait { duration 3.0 }
+	select {object "Regulus"}
+	center { time 2 }
+	#lock {}
+	labels { set "stars|planets|constellations" }
+	renderflags { set "constellations" }
+	wait { duration 5 }
+
+	print { text "Keep an eye on Jupiter ..." row-3 }
+	mark { object "Jupiter" size 15 color [1 0 0] symbol "diamond" }
+	wait { duration 3 }
+	
+	print { text "... and Venus" row-3 }
+	mark { object "Venus" size 15 color [0 1 0] symbol "diamond" }
+	wait { duration 3 }
+	
+	print { text "Jupiter and Venus are about to come very close" row-3 }
+	wait { duration 3 }
+
+	timerate { rate 172800 }
+	wait {duration 5.48}
+	timerate { rate 0 }
+	print { text "Jupiter and Venus are in conjunction for the first time" row-3 }
+	wait { duration 5 }
+	print { text "The date is 12 August, 3BC" row-3 }
+	wait { duration 5 }
+	
+	print { text "We'll speed things up now - one second is 4 days" row-3 duration 3 }
+	timerate { rate 385600 }
+	wait {duration 7}
+	
+	print { text "Jupiter passes Regulus..." row-3 duration 5 }
+	wait {duration 12}
+	
+	print { text "... and begins to apparently move backwards" row-3 duration 5 }
+	wait {duration 22}
+	
+	print { text "Jupiter then passes Regulus again moving backwards ..." row-3 duration 5 }
+	wait {duration 9}
+	
+	print { text "... until it resumes its normal course..." row-3 duration 5 }
+	wait {duration 5}
+	print { text "... and passes Regulus for the third time." row-3 duration 4 }
+	wait {duration 5}
+	
+	print { text "Notice that Venus is reappearing on the right" row-3 duration 5 }
+	wait {duration 5}
+
+	timerate { rate 172800 }
+	print { text "Jupiter and Venus are heading for conjunction" row-3 duration 5 }
+	wait {duration 9.6}
+
+	print { text "The date is 17 June, 2BC" row-3 duration 15 }
+	timerate { rate 0 }
+	wait {duration 5}
+	timerate { rate 10800 }
+	wait {duration 5}
+	
+	timerate { rate 0 }
+}
